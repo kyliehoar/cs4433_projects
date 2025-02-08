@@ -1,0 +1,32 @@
+Task D:
+
+The ConnectednessFactor MapReduce job calculates the "connectedness factor"
+for each Facebook page owner (p2). This factor represents the number of people (p1)
+listing p2 as their friend. If a page owner is not listed as anybody’s friend, they
+receive a connectedness factor of zero.
+
+Input:
+ - pages.csv
+        PersonID,Name,Nationality,Country Code,Hobby
+        0,Lindsey Mathews,Dominica,1,Australian Football League
+        1,Jennifer Alvarez,Egypt,20,Racing Pigeons
+        2,James Hurst,Romania,40,Third person shooter games
+ - friends.csv
+        FriendRel,PersonID,MyFriend,DateOfFriendship,Desc
+        0,12,14,2016-05-14,Daughter
+        1,9,6,2014-03-13,Daughter
+        2,20,1,2009-11-10,Daughter
+
+  Example output:
+        Lindsey Mathews	2
+        Jennifer Alvarez	4
+        David Mendoza	1
+        Dawn Smith	1
+        Andrea Edwards	0
+        Jessica Conrad	1
+        Isaiah Mccarty	3
+
+  Explanation:
+    FriendsMapper: Extracts MyFriend and counts references
+    PagesMapper: Extracts PersonID and assigns names
+    Reducer: Combines data and outputs (Name, Friend Count)
