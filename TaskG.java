@@ -137,20 +137,6 @@ public class TaskG {
         }
     }
 
-    public void debug(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Task g");
-        job.setJarByClass(TaskG.class);
-        job.setReducerClass(DisconnectedReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Text.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/pages.csv"), TextInputFormat.class, PagesMapper.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/access_logs.csv"),TextInputFormat.class, AccessLogsMapper.class);
-        job.getConfiguration().set("joinType", "inner");
-        FileOutputFormat.setOutputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/outputTaskG.csv"));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-    }
-
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Task g");
