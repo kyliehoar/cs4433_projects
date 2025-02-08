@@ -116,21 +116,6 @@ public class TaskF {
         }
     }
 
-    public static void debug(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Task f");
-        job.setJarByClass(TaskF.class);
-        job.setReducerClass(TaskF.FriendshipReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Text.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/friends.csv"), TextInputFormat.class, TaskF.FriendsMapper.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/access_logs.csv"),TextInputFormat.class, TaskF.AccessLogMapper.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/pages.csv"),TextInputFormat.class, TaskF.PagesMapper.class);
-        job.getConfiguration().set("joinType", "inner");
-        FileOutputFormat.setOutputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/outputTaskF.csv"));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-    }
-
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Task f");
