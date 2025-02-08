@@ -1,0 +1,30 @@
+Task E:
+
+This MapReduce job determines which people have favorites by calculating,
+for each Facebook page owner (p2), the total number of page accesses they
+have made and the number of distinct pages they have accessed, as reported
+in the access_log.csv file
+
+Input:
+    - access_logs.csv
+        AccessID,ByWho,WhatPage,TypeOfAccess,AccessTime
+        0,15,5,Liked Post,2015-04-01 15:14:32
+        1,10,3,Followed Profile,2012-05-09 10:48:23
+        2,10,15,Shared Post,2023-05-28 14:09:51
+        3,12,18,Left a Comment,2011-05-02 09:05:07
+        4,16,19,Viewed Profile,2020-08-27 02:20:56
+
+
+ Output:
+    0	1	1
+    1	5	4
+    10	3	3
+    11	2	2
+    12	3	3
+    13	2	2
+    14	2	2
+    15	5	4
+
+ Explantion:
+    Mapper: Reads ByWho (person) and WhatPage (page accessed).
+    Reducer: Counts total accesses and distinct pages visited per person
