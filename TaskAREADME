@@ -1,0 +1,17 @@
+Task A:
+Report all Facebook users (name and hobby) whose Nationality is the same as your
+own Nationality (pick one, e.g., "American" or "Indian", etc.)
+
+Corresponding File(s):
+FilterByNationality.java
+
+Output:
+Nicole Mckenzie	Nicole Mckenzie - Deltiology
+Samuel Shelton	Samuel Shelton - Volunteer
+
+Code:
+My original solution included the mapper and reducer, however I realized that
+there was a more efficient way to come to the solution and I didn't need a reducer.
+This second solution is more scalable than my original solution because the cost is lower.
+It costs more to add a reducer. The TA helped me with some of my code, helping me to set the file paths
+and add in job.setNumReduceTasks(0).

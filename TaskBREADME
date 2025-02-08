@@ -1,0 +1,38 @@
+Task B:
+Find the top 10 popular Facebook pages, namely, those that were the most often accessed
+based on your AccessLog dataset compared to all other pages. Return their ID, Name, and Nationality.
+
+Corresponding File(s):
+AccessLog.java
+Top10.java
+
+Output for AccessLog:
+1	2
+11	2
+13	2
+17	2
+2	2
+10	2
+7	2
+WhatPage	1
+8	1
+0	1
+16	1
+
+Final Output:
+0	Vickie Jimenez,Saint Kitts and Nevis,1
+1	Lisa Johnston,Saint Kitts and Nevis,2
+10	Robert Adams,Belgium,2
+11	Heather Wilson,Hungary,2
+13	Samantha Nolan,The Bahamas,2
+16	Jonathan Ortiz,Germany,1
+17	Samuel Shelton,Canada,2
+2	Cassie Reid,Greece,2
+7	David Stevens,Norway,2
+8	Mary Ramsey,United Kingdom,1
+
+Code:
+There are two parts to this code. The first java file (accesslog) parses through the access_log.csv file and returns the top 10
+facebook pages visited (figured out by WhatPage occurence) and how many times it was visited. The second java file (Top10) takes
+both the output from the first file and information from pages.csv file to output the ID number, name, nationality, and how often
+their facebook page was visited.
