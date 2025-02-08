@@ -117,20 +117,6 @@ public class TaskH {
         }
     }
 
-    public void debug(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Task H");
-        job.setJarByClass(TaskH.class);
-        job.setReducerClass(TaskH.PopularReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Text.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/pages.csv"), TextInputFormat.class, TaskH.PagesMapper.class);
-        MultipleInputs.addInputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/friends.csv"),TextInputFormat.class, TaskH.FriendsMapper.class);
-        job.getConfiguration().set("joinType", "inner");
-        FileOutputFormat.setOutputPath(job, new Path("/Users/kyliehoar/IdeaProjects/cs4433_project1/outputTaskH.csv"));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-    }
-
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Task H");
