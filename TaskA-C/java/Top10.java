@@ -80,8 +80,8 @@ public class Top10 extends Configured implements Tool {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
 
-        FileInputFormat.addInputPath(job, new Path("C:/Users/19788/Desktop/project1/output_top10_pages/part-r-00000"));
-        FileOutputFormat.setOutputPath(job, new Path("C:/Users/19788/Desktop/project1/output_taskb"));
+        FileInputFormat.addInputPath(job, new Path("C:/Users/19788/Desktop/project2/output_top10_pages/part-r-00000"));
+        FileOutputFormat.setOutputPath(job, new Path("C:/Users/19788/Desktop/project2/output_taskb"));
 
         return job.waitForCompletion(true) ? 0 : 1;
     }
