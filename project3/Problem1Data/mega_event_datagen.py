@@ -15,7 +15,7 @@ def gen_meta_event (num_people=NUM_PEOPLE) -> pd.DataFrame:
     for iterator in range(num_people):
         ids.append(iterator)
         names.append(fake.name())
-        tables.append(random.randint(0,50))
+        tables.append(random.randint(0,300000))
         tests.append("sick" if random.random() < 0.30 else "not-sick")
 
     data_frame = pd.DataFrame({
